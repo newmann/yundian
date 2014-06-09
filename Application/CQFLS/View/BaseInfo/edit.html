@@ -1,0 +1,37 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>{:isset($baseinfo['id'])?'编辑':'新增'}公司基本信息</h2>
+    </div>
+    <form action="{:U()}" method="post" class="form-horizontal">
+        <div class="form-item">
+            <label class="item-label">代码<span class="check-tips">（公司代码，显示作用）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="code" value="{$baseinfo.code|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">名称<span class="check-tips">（公司名称）</span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="name" value="{$baseinfo.name|default=''}">
+            </div>
+        </div>
+        <div class="form-item">
+            <input type="hidden" name="id" value="{$baseinfo.id|default=''}">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+//		Think.setValue("pid", {$baseinfo.pid|default = 0});
+//        Think.setValue("hide", {$baseinfo.hide|default = 0});
+//        Think.setValue("is_dev", {$baseinfo.is_dev|default = 0});
+
+        //导航高亮
+        highlight_subnav('{:U('index')}');
+    </script>
+</block>
